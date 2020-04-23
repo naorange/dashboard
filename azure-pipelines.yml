@@ -10,11 +10,11 @@ resources:
 
 variables:
 - group: common-value
-  # containerRegistry: 'skademyacr.azurecr.io'
+  # containerRegistry: 'admin24acr.azurecr.io'
   # containerRegistryDockerConnection: 'acr'
   # environment: 'aks.default'
 - name: imageRepository
-  value: 'lecturesystem'
+  value: 'concert'
 - name: dockerfilePath
   value: '**/Dockerfile'
 - name: tag
@@ -105,22 +105,7 @@ stages:
                           image: $(containerRegistry)/$(imageRepository):$(tag)
                           ports:
                             - containerPort: 8080
-                          readinessProbe:
-                            httpGet:
-                              path: /actuator/health
-                              port: 8080
-                            initialDelaySeconds: 10
-                            timeoutSeconds: 2
-                            periodSeconds: 5
-                            failureThreshold: 10
-                          livenessProbe:
-                            httpGet:
-                              path: /actuator/health
-                              port: 8080
-                            initialDelaySeconds: 120
-                            timeoutSeconds: 2
-                            periodSeconds: 5
-                            failureThreshold: 5
+
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
           - task: Kubernetes@1
