@@ -24,7 +24,7 @@ public class CourseBookStatusViewHandler {
                 // view 객체 생성
                 CourseBookStatus courseBookStatus = new CourseBookStatus();
                 // view 객체에 이벤트의 Value 를 set 함
-                courseBookStatus.setTicketBookId(ticketBooked.getId);
+                courseBookStatus.setTicketBookId(ticketBooked.getId());
                 // view 레파지 토리에 save
                 courseBookStatusRepository.save(courseBookStatus);
             }
@@ -40,7 +40,7 @@ public class CourseBookStatusViewHandler {
         try {
             if (ticketCanceled.isMe()) {
                 // view 레파지 토리에 삭제 쿼리
-                courseBookStatusRepository.deleteByTicketBookId(ticketCanceled.getId);
+                courseBookStatusRepository.deleteByTicketBookId(ticketCanceled.getId());
             }
         }catch (Exception e){
             e.printStackTrace();

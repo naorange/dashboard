@@ -1,6 +1,9 @@
 sac\CourseBookStatus.class
 sac\CourseBookStatusRepository.class
 sac\TicketCanceled.class
+sac\Application.class
 sac\config\kafka\KafkaProcessor.class
+sac\PolicyHandler.class
 sac\TicketBooked.class
 sac\AbstractEvent.class
+sac\CourseBookStatusViewHandler.class
